@@ -1,7 +1,6 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/victorfeijo/.oh-my-zsh
+export ZSH=/home/victorfeijo/.oh-my-zsh
 #  export TERM="xterm-256color"
-
 setopt RM_STAR_WAIT
 setopt interactivecomments
 setopt CORRECT
@@ -57,7 +56,7 @@ plugins=(git)
 
 # User configuration
 
-  export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -96,6 +95,12 @@ source .oh-my-zsh/lib/alias.zsh
 
 [ -s "/home/victorfeijo/.scm_breeze/scm_breeze.sh" ] && source "/home/victorfeijo/.scm_breeze/scm_breeze.sh"
 
+# Work commands and aliases
 
-# Path to android-sdk
-export ANDROID_HOME=/home/victorfeijo/Android/Sdk
+[ -s "/home/victorfeijo/.scm_breeze/scm_breeze.sh" ] && source "/home/victorfeijo/.scm_breeze/scm_breeze.sh"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
+export GOPATH="$HOME/go"
+eval "$(rbenv init -)"
+alias ru="bash ~/.ru.sh"
