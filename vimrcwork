@@ -43,7 +43,7 @@ filetype plugin indent on
 
 " Choose the colorscheme
 set background=dark
-colorscheme solarized
+colorscheme google
 let g:solarized_termcolors=256
 
 " Open Nerd Tree
