@@ -10,9 +10,6 @@ set shiftround
 set expandtab
 set list listchars=tab:»·
 set ts=2 sw=2 et
-set smartindent
-set autoindent
-set nocindent
 set wrap
 set viminfo-='100,<100,s10,h
 
@@ -27,21 +24,16 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'slim-template/vim-slim'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'sickill/vim-pasta'
 Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-fugitive'
 Plugin 'townk/vim-autoclose'
+Plugin 'rking/ag.vim'
+Plugin 'christoomey/vim-system-copy'
 
 " Ruby Bundles
-Plugin 'vim-ruby/vim-ruby'              " Ruby support on vim
 Plugin 'kana/vim-textobj-user'          " Create your own text objects (used by vim-textobj-rubyblock)
 Plugin 'nelstrom/vim-textobj-rubyblock' " Ruby text objects
-Plugin 'tpope/vim-rails'                " Rails support for vim
 Plugin 'thoughtbot/vim-rspec'           " Run RSpecs from vim
-Plugin 'tpope/vim-bundler'              " Support for bundler inside vim
 Plugin 'tpope/vim-endwise'              " Auto add end on class, module, def, etc.
 Plugin 'ngmy/vim-rubocop'               " Rubocop
 
@@ -55,16 +47,6 @@ filetype plugin indent on
 set background=dark
 colorscheme solarized
 let g:solarized_termcolors=256
-
-" Configuratins syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " Open Nerd Tree
 map <C-n> :NERDTreeToggle<CR>
@@ -89,13 +71,23 @@ nmap <leader>9 <Plug>AirlineSelectTab9a
 
 "Rubocopo
 let g:vimrubocop_keymap = 0
-nmap <leader>r :RuboCop<CR>
+nmap <leader>rr :RuboCop<CR>
+nmap <leader>ra :RuboCop --auto-correct<CR>
 
 " Rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
 " Ctrl-p configuration
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_user_command = 'find %s -type f'
+" The Silver Searcher
+if executable('ag')
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+  let g:ctrlp_user_command = 'find %s -type f'
+endif
+
+" Configure ag word finder
+let g:ag_working_path_mode="r"
 
