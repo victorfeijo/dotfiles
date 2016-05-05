@@ -31,8 +31,6 @@ Plugin 'rking/ag.vim'
 Plugin 'christoomey/vim-system-copy'
 
 " Ruby Bundles
-Plugin 'kana/vim-textobj-user'          " Create your own text objects (used by vim-textobj-rubyblock)
-Plugin 'nelstrom/vim-textobj-rubyblock' " Ruby text objects
 Plugin 'thoughtbot/vim-rspec'           " Run RSpecs from vim
 Plugin 'tpope/vim-endwise'              " Auto add end on class, module, def, etc.
 Plugin 'ngmy/vim-rubocop'               " Rubocop
