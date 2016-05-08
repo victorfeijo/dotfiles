@@ -1,4 +1,4 @@
 # dotfiles
 My setup
 
-Use Vundle to install vim plugins
+Use Plug to install neovim plugins
