@@ -2,6 +2,7 @@ scriptencoding utf-8
 set encoding=utf-8
 set ruler
 set number
+set noshowmode " airline already shows me
 "set paste
 " Softtabs, 2 spaces
 set tabstop=2
@@ -12,7 +13,6 @@ set list listchars=tab:»·
 set ts=2 sw=2 et
 set wrap
 set viminfo-='100,<100,s10,h
-
 
 " mandatory defaults
 set nocompatible
