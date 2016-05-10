@@ -91,9 +91,7 @@ export EDITOR="vim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 # Aliases
-source .oh-my-zsh/lib/alias.zsh
-
-[ -s "/home/victorfeijo/.scm_breeze/scm_breeze.sh" ] && source "/home/victorfeijo/.scm_breeze/scm_breeze.sh"
+source ~/.oh-my-zsh/lib/alias.zsh
 
 # Work commands and aliases
 
