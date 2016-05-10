@@ -9,6 +9,7 @@ set tabstop=2
 set shiftwidth=2
 set shiftround
 set expandtab
+set mouse=c " removing mouse
 set list listchars=tab:»·
 set ts=2 sw=2 et
 set wrap
