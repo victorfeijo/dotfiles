@@ -10,6 +10,4 @@ alias ev='vim ~/.config/nvim/init.vim'
 alias et='vim ~/.tmux.conf'
 alias ez='vim ~/.zshrc'
 
-# vim alias
-alias vim='nvim'
 
