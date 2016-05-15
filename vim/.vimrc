@@ -79,7 +79,7 @@ map <Leader>a :call RunAllSpecs()<CR>
 " Ctrl-p configuration
 " The Silver Searcher
 if executable('ag')
-  let g:ctrlp_use_caching = 0
+  let g:ctrlp_use_caching = 1
   set wildignore+=*/tmp/*,*.so,*.swp,*.zip
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
