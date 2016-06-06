@@ -12,6 +12,7 @@ set list listchars=tab:»·
 set ts=2 sw=2 et
 set wrap
 set viminfo-='100,<100,s10,h
+set pastetoggle=<F2>
 
 " mandatory defaults
 set nocompatible
