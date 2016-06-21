@@ -13,7 +13,7 @@ RESET=$reset_color
 if [ "$USER" = "root" ]; then
     PROMPTCOLOR="%{$R%}" PROMPTPREFIX="-!-";
 else
-    PROMPTCOLOR="%{$Y%}" PROMPTPREFIX="⚡";
+    PROMPTCOLOR="%{$Y%}" PROMPTPREFIX="";
 fi
 
 local return_code="%(?..%{$R%}%? ↵%{$RESET%})"
@@ -67,7 +67,7 @@ function custom_git_prompt() {
 }
 
 # %B sets bold text
-PROMPT='$PROMPTCOLOR$PROMPTPREFIX %2~ $(custom_git_prompt)%{$C%}%B❭❭❭%b%{$RESET%} '
+PROMPT='$PROMPTCOLOR$PROMPTPREFIX %2~ $(custom_git_prompt)%{$G%}%B$%b%{$RESET%} '
 RPS1="${return_code}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$M%}‹"
