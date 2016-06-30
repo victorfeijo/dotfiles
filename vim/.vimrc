@@ -88,4 +88,3 @@ endif
 
 " Configure ag word finder
 let g:ag_working_path_mode="r"
-

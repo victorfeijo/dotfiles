@@ -91,11 +91,6 @@ plugins+=(zsh-completions)
 #plugins=(zsh-autosuggestions)
 autoload -U compinit && compinit
 
-# Autoload tmux when startup
-if [ ! $TMUX ]; then
-  tmux
-fi
-
 # Some of my config's
 export EDITOR="vim"
 export USE_EDITOR=$EDITOR
