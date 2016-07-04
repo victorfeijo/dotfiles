@@ -13,6 +13,8 @@ set ts=2 sw=2 et
 set wrap
 set viminfo-='100,<100,s10,h
 set pastetoggle=<F2>
+" ctrl+d and ctrl+u length
+set scroll=12
 
 " mandatory defaults
 set nocompatible
