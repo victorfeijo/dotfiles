@@ -15,6 +15,13 @@ set viminfo-='100,<100,s10,h
 set pastetoggle=<F2>
 " ctrl+d and ctrl+u length
 set scroll=12
+set hls
+
+" map some ex commands
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
 
 " mandatory defaults
 set nocompatible
@@ -32,6 +39,7 @@ Plugin 'bling/vim-airline'
 Plugin 'townk/vim-autoclose'
 Plugin 'rking/ag.vim'
 Plugin 'christoomey/vim-system-copy'
+Plugin 'tpope/vim-commentary'
 
 " Ruby Bundles
 Plugin 'thoughtbot/vim-rspec'           " Run RSpecs from vim
@@ -82,7 +90,7 @@ map <Leader>a :call RunAllSpecs()<CR>
 " Ctrl-p configuration
 " The Silver Searcher
 if executable('ag')
-  let g:ctrlp_use_caching = 1
+  let g:ctrlp_use_caching = 0
   set wildignore+=*/tmp/*,*.so,*.swp,*.zip
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
