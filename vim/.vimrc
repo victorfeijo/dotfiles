@@ -2,7 +2,7 @@ scriptencoding utf-8
 set encoding=utf-8
 set ruler
 set number
-"set paste
+
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
@@ -13,23 +13,24 @@ set ts=2 sw=2 et
 set wrap
 set viminfo-='100,<100,s10,h
 set pastetoggle=<F2>
-" ctrl+d and ctrl+u length
+
+" Ctrl+d and ctrl+u length
 set scroll=12
 set hls
 
-" map some ex commands
+" Map usefull ex commands
 :command WQ wq
 :command Wq wq
 :command W w
 :command Q q
 
-" mandatory defaults
+" Mandatory defaults
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" our plugins
+" My plugins
 Plugin 'gmarik/Vundle.vim'      
 Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdtree.git'
@@ -61,8 +62,6 @@ let g:solarized_termcolors=256
 map <C-n> :NERDTreeToggle<CR>
 nmap <leader>n :NERDTreeFind<CR>
 
-"Configure vim airline
-
 " Top separator bar
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -78,7 +77,7 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9a
 
-"Rubocopo
+" Rubocop
 let g:vimrubocop_keymap = 0
 nmap <leader>rr :RuboCop<CR>
 nmap <leader>ra :RuboCop --auto-correct<CR>
