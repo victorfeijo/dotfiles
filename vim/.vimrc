@@ -2,6 +2,9 @@ scriptencoding utf-8
 set encoding=utf-8
 set ruler
 set number
+set shell=/bin/zsh
+set wildmenu
+set wildmode=full
 
 " Softtabs, 2 spaces
 set tabstop=2
@@ -97,3 +100,4 @@ endif
 
 " Configure ag word finder
 let g:ag_working_path_mode="r"
+
