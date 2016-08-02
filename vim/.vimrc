@@ -44,6 +44,7 @@ Plugin 'townk/vim-autoclose'
 Plugin 'rking/ag.vim'
 Plugin 'christoomey/vim-system-copy'
 Plugin 'tpope/vim-commentary'
+Plugin 'mxw/vim-jsx'
 
 " Ruby Bundles
 Plugin 'thoughtbot/vim-rspec'           " Run RSpecs from vim
