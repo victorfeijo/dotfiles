@@ -5,6 +5,7 @@ set number
 set shell=/bin/zsh
 set wildmenu
 set wildmode=full
+set laststatus=2
 
 " Softtabs, 2 spaces
 set tabstop=2
@@ -40,17 +41,16 @@ Plugin 'scrooloose/nerdtree.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sickill/vim-pasta'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'townk/vim-autoclose'
 Plugin 'rking/ag.vim'
 Plugin 'christoomey/vim-system-copy'
 Plugin 'tpope/vim-commentary'
-Plugin 'mxw/vim-jsx'
 
 " Ruby Bundles
 Plugin 'thoughtbot/vim-rspec'           " Run RSpecs from vim
 Plugin 'tpope/vim-endwise'              " Auto add end on class, module, def, etc.
 Plugin 'ngmy/vim-rubocop'               " Rubocop
-
 
 call vundle#end()
 
@@ -66,9 +66,12 @@ let g:solarized_termcolors=256
 map <C-n> :NERDTreeToggle<CR>
 nmap <leader>n :NERDTreeFind<CR>
 
-" Top separator bar
+" Airline configs
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='jellybeans'
+
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 nmap <leader>1 <Plug>AirlineSelectTab1
@@ -108,5 +111,3 @@ if executable('ag')
 endif
 
 " Configure ag word finder
-let g:ag_working_path_mode="r"
-
