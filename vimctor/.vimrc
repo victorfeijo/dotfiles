@@ -47,6 +47,9 @@ Plugin 'rking/ag.vim'
 Plugin 'christoomey/vim-system-copy'
 Plugin 'tpope/vim-commentary'
 
+" Javascript
+Plugin 'pangloss/vim-javascript'
+
 " Ruby Bundles
 Plugin 'thoughtbot/vim-rspec'           " Run RSpecs from vim
 Plugin 'tpope/vim-endwise'              " Auto add end on class, module, def, etc.
