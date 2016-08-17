@@ -5,6 +5,6 @@ Run `$ sh vimctor/install.sh` to install vim's conf.
 
 --------
 
-It's gonna look like this:
+It's gonna look's like this:
 
 ![screen](screen.png)
