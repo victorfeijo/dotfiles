@@ -49,6 +49,7 @@ Plugin 'tpope/vim-commentary'
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 " Ruby Bundles
 Plugin 'thoughtbot/vim-rspec'           " Run RSpecs from vim
@@ -75,6 +76,9 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='jellybeans'
 
+" JSX on javascript files
+let g:jsx_ext_required = 0
+
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 nmap <leader>1 <Plug>AirlineSelectTab1
@@ -94,6 +98,10 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+" Map bigger line moves
+noremap <C-U> 12<C-U>
+noremap <C-D> 12<C-D>
 
 " Rubocop
 let g:vimrubocop_keymap = 0
