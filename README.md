@@ -1,7 +1,7 @@
 # dotfiles
-My setup
-
 Use Plug to install neovim plugins
+
+Run `$ sh vimctor/install.sh` to install vim's conf.
 
 --------
 
