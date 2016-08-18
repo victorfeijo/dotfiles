@@ -35,7 +35,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " My plugins
-Plugin 'gmarik/Vundle.vim'      
+Plugin 'gmarik/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'kien/ctrlp.vim'
