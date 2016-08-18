@@ -1,6 +1,4 @@
 # dotfiles
-Use Plug to install neovim plugins
-
 Before install anything, make shure that you already have tmux, vim and zsh installed.
 
 Run `$ sh zsh/install.sh` to install zsh's conf.
