@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/victorfeijo/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 #  export TERM="xterm-256color"
 setopt RM_STAR_WAIT
 setopt interactivecomments
@@ -88,7 +88,7 @@ source $ZSH/oh-my-zsh.sh
 #
 # Loading plugin
 plugins+=(zsh-completions)
-#plugins=(zsh-autosuggestions)
+plugins=(zsh-autosuggestions)
 autoload -U compinit && compinit
 
 # Some of my config's
