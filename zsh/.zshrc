@@ -98,6 +98,10 @@ export VISUAL=$EDITOR
 # Aliases
 source ~/.oh-my-zsh/lib/alias.zsh
 
+# Android adb connecting
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
 # Work commands and aliases
 
 [ -s "/home/victorfeijo/.scm_breeze/scm_breeze.sh" ] && source "/home/victorfeijo/.scm_breeze/scm_breeze.sh"
