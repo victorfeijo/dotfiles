@@ -52,7 +52,7 @@ ZSH_THEME="sunrise"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-256color)
 
 # User configuration
 
@@ -86,10 +86,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-# Loading plugin
-plugins+=(zsh-completions)
-plugins=(zsh-autosuggestions)
+
+export TERM=xterm-256color
+
+#oading plugin
 autoload -U compinit && compinit
+autoload -Uz colors && colors
 
 # Some of my config's
 export EDITOR="vim"
