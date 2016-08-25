@@ -2,12 +2,12 @@
 # Intended to be used with Solarized: http://ethanschoonover.com/solarized
 
 # Color shortcuts
-R=$fg_bold[red]
-G=$fg_bold[green]
-M=$fg_bold[magenta]
-Y=$fg_bold[yellow]
-B=$fg_bold[blue]
-C=$fg_bold[cyan]
+R=%B%F{202}
+G=%B%F{121}
+M=%B%F{36}
+Y=%B%F{221}
+B=%B%F{27}
+C=%B%F{45}
 RESET=$reset_color
 
 if [ "$USER" = "root" ]; then
