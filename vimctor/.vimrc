@@ -6,6 +6,7 @@ set shell=/bin/zsh
 set wildmenu
 set wildmode=full
 set laststatus=2
+set cursorline
 
 " Softtabs, 2 spaces
 set tabstop=2
@@ -62,9 +63,10 @@ syntax enable
 filetype plugin indent on
 
 " Choose the colorscheme
+set t_Co=256
 set background=dark
-colorscheme google
-let g:solarized_termcolors=256
+let g:solarized_termcolors=16
+colorscheme solarized
 
 " Open Nerd Tree
 map <C-n> :NERDTreeToggle<CR>
