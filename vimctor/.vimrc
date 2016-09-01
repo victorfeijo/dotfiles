@@ -43,10 +43,11 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'sickill/vim-pasta'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'townk/vim-autoclose'
+Plugin 'raimondi/delimitmate'
 Plugin 'rking/ag.vim'
 Plugin 'christoomey/vim-system-copy'
 Plugin 'tpope/vim-commentary'
+Plugin 'altercation/vim-colors-solarized'
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
@@ -65,8 +66,9 @@ filetype plugin indent on
 " Choose the colorscheme
 set t_Co=256
 set background=dark
-let g:solarized_termcolors=16
 colorscheme solarized
+let g:solarized_termcolors=16
+let g:solarized_bold=1
 
 " Open Nerd Tree
 map <C-n> :NERDTreeToggle<CR>
