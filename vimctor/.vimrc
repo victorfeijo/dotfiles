@@ -83,6 +83,9 @@ let g:airline_theme='jellybeans'
 " JSX on javascript files
 let g:jsx_ext_required = 0
 
+" Map , to do the samething then leader
+nmap <leader> ,
+
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 nmap <leader>1 <Plug>AirlineSelectTab1
@@ -95,7 +98,7 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9a
 " Delete the current buffer
-nmap <leader>d :bd<CR>
+nmap ,d :bd<CR>
 
 " Remove arrow keys
 noremap <Up> <NOP>
