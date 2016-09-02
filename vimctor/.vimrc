@@ -84,7 +84,7 @@ let g:airline_theme='jellybeans'
 let g:jsx_ext_required = 0
 
 " Map , to do the samething then leader
-nmap <leader> ,
+let mapleader=','
 
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
