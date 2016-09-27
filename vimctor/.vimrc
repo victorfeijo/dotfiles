@@ -1,43 +1,106 @@
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+" ================ General Config ====================
+
 scriptencoding utf-8
 set encoding=utf-8
-set ruler
 set number
 set shell=/bin/zsh
 set wildmenu
 set wildmode=full
 set laststatus=2
+set visualbell                  "No sounds
+set autoread                    "Reload files changed outside vim
 set cursorline
 
-" Softtabs, 2 spaces
-set tabstop=2
+"turn on syntax highlighting
+syntax on
+
+" Change leader to a comma because the backslash is too far away
+" That means all \x commands turn into ,x
+" The mapleader has to be set before vundle starts loading all
+" the plugins.
+let mapleader=","
+
+" =============== Vundle Initialization ===============
+" This loads all the plugins specified in ~/.vim/vundles.vim
+" Use Vundle plugin to manage all other plugins
+source ~/.vim/vundles.vim
+
+" ================ Turn Off Swap Files ==============
+
+set noswapfile
+set nobackup
+set nowb
+
+" ================ Indentation ======================
+
+set autoindent
+set smartindent
+set smarttab
 set shiftwidth=2
-set shiftround
+set softtabstop=2
+set tabstop=2
 set expandtab
-set list listchars=tab:»·
-set ts=2 sw=2 et
-set wrap
-set viminfo-='100,<100,s10,h
 set pastetoggle=<F2>
 
-" Ctrl+d and ctrl+u length
-set scroll=12
-set hls
+filetype plugin on
+filetype indent on
 
-" Map usefull ex commands
+" Display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:·
+
+" ================ Completion =======================
+
+set wildmode=list:longest
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore+=*vim/backups*
+set wildignore+=*sass-cache*
+set wildignore+=*DS_Store*
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=*.png,*.jpg,*.gif
+
+" ================ Search ===========================
+
+set incsearch       " Find the next match as we type the search
+set hlsearch        " Highlight searches by default
+set ignorecase      " Ignore case when searching...
+set smartcase       " ...unless we type a capital
+
+" =============== Map commands =====================
+
 :command WQ wq
 :command Wq wq
 :command W w
 :command Q q
 
-" Mandatory defaults
-set nocompatible
+" Remove arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+" Map bigger line moves
+noremap <C-U> 12<C-U>
+noremap <C-D> 12<C-D>
+
+" Delete the current buffer
+nmap ,d :bd<CR>
+
+" ================ Plugins ==============
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " My plugins
 Plugin 'gmarik/Vundle.vim'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sickill/vim-pasta'
@@ -48,6 +111,8 @@ Plugin 'rking/ag.vim'
 Plugin 'christoomey/vim-system-copy'
 Plugin 'tpope/vim-commentary'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-sensible'
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
@@ -83,9 +148,6 @@ let g:airline_theme='jellybeans'
 " JSX on javascript files
 let g:jsx_ext_required = 0
 
-" Map , to do the samething then leader
-let mapleader=','
-
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 nmap <leader>1 <Plug>AirlineSelectTab1
@@ -97,18 +159,6 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9a
-" Delete the current buffer
-nmap ,d :bd<CR>
-
-" Remove arrow keys
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-
-" Map bigger line moves
-noremap <C-U> 12<C-U>
-noremap <C-D> 12<C-D>
 
 " Rubocop
 let g:vimrubocop_keymap = 0
@@ -127,5 +177,3 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-
-" Configure ag word finder
