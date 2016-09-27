@@ -1,68 +1,3 @@
-scriptencoding utf-8
-set encoding=utf-8
-set ruler
-set number
-set shell=/bin/zsh
-set wildmenu
-set wildmode=full
-set laststatus=2
-set cursorline
-
-" Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
-set shiftround
-set expandtab
-set list listchars=tab:»·
-set ts=2 sw=2 et
-set wrap
-set viminfo-='100,<100,s10,h
-set pastetoggle=<F2>
-
-" Ctrl+d and ctrl+u length
-set scroll=12
-set hls
-
-" Map usefull ex commands
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
-
-" Mandatory defaults
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" My plugins
-Plugin 'gmarik/Vundle.vim'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'kien/ctrlp.vim'
-Plugin 'sickill/vim-pasta'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'raimondi/delimitmate'
-Plugin 'rking/ag.vim'
-Plugin 'christoomey/vim-system-copy'
-Plugin 'tpope/vim-commentary'
-Plugin 'altercation/vim-colors-solarized'
-
-" Javascript
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-
-" Ruby Bundles
-Plugin 'thoughtbot/vim-rspec'           " Run RSpecs from vim
-Plugin 'tpope/vim-endwise'              " Auto add end on class, module, def, etc.
-Plugin 'ngmy/vim-rubocop'               " Rubocop
-
-call vundle#end()
-
-syntax enable
-filetype plugin indent on
-
 " Choose the colorscheme
 set t_Co=256
 set background=dark
@@ -82,9 +17,6 @@ let g:airline_theme='jellybeans'
 
 " JSX on javascript files
 let g:jsx_ext_required = 0
-
-" Map , to do the samething then leader
-let mapleader=','
 
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
@@ -125,7 +57,6 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
   set wildignore+=*/tmp/*,*.so,*.swp,*.zip
   set grepprg=ag\ --nogroup\ --nocolor
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g "'
 endif
 
-" Configure ag word finder
