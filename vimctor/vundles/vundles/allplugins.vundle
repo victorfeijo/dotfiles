@@ -1,0 +1,22 @@
+" My plugins
+Plugin 'gmarik/Vundle.vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'kien/ctrlp.vim'
+Plugin 'sickill/vim-pasta'
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'raimondi/delimitmate'
+Plugin 'rking/ag.vim'
+Plugin 'christoomey/vim-system-copy'
+Plugin 'tpope/vim-commentary'
+Plugin 'altercation/vim-colors-solarized'
+
+" Javascript
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+
+" Ruby Bundles
+Plugin 'thoughtbot/vim-rspec'           " Run RSpecs from vim
+Plugin 'tpope/vim-endwise'              " Auto add end on class, module, def, etc.
+Plugin 'ngmy/vim-rubocop'               " Rubocop
