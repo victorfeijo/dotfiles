@@ -24,11 +24,6 @@ syntax on
 " the plugins.
 let mapleader=","
 
-" =============== Vundle Initialization ===============
-" This loads all the plugins specified in ~/.vim/vundles.vim
-" Use Vundle plugin to manage all other plugins
-source ~/.vim/vundles.vim
-
 " ================ Turn Off Swap Files ==============
 
 set noswapfile
