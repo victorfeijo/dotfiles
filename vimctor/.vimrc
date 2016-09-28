@@ -163,6 +163,7 @@ nmap <leader>ra :RuboCop --auto-correct<CR>
 " Rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
 
 " Ctrl-p configuration
 " The Silver Searcher
