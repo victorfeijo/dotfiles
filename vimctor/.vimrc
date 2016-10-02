@@ -108,6 +108,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sensible'
+Plugin 'victorfeijo/binding-pry-vim'
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
