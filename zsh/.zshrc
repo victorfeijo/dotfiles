@@ -90,7 +90,7 @@ source $ZSH/oh-my-zsh.sh
 # export TERM=xterm-256color
 
 #oading plugin
-# autoload -U compinit && compinit
+autoload -U compinit && compinit
 autoload -Uz colors && colors
 
 # Some of my config's
@@ -112,3 +112,8 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export GOPATH="$HOME/go"
 eval "$(rbenv init -)"
+
+# Python pyenv
+export PATH="/home/victorfeijo/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
