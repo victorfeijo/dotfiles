@@ -10,7 +10,7 @@ set number
 set shell=/bin/zsh
 set wildmenu
 set wildmode=full
-set laststatus=2
+set laststatus=4
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set cursorline
@@ -77,10 +77,10 @@ set smartcase       " ...unless we type a capital
 :command Q q
 
 " Remove arrow keys
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+" noremap <Up> <NOP>
+" noremap <Down> <NOP>
+" noremap <Left> <NOP>
+" noremap <Right> <NOP>
 
 " Map bigger line moves
 noremap <C-U> 12<C-U>
@@ -106,6 +106,7 @@ Plugin 'rking/ag.vim'
 Plugin 'christoomey/vim-system-copy'
 Plugin 'tpope/vim-commentary'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'lifepillar/vim-solarized8'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sensible'
 Plugin 'victorfeijo/binding-pry-vim'
@@ -127,7 +128,7 @@ filetype plugin indent on
 " Choose the colorscheme
 set t_Co=256
 set background=dark
-colorscheme solarized
+colorscheme solarized8_dark_high
 let g:solarized_termcolors=16
 let g:solarized_bold=1
 
