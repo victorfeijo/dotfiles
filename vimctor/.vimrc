@@ -107,7 +107,6 @@ Plugin 'christoomey/vim-system-copy'
 Plugin 'tpope/vim-commentary'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'lifepillar/vim-solarized8'
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sensible'
 Plugin 'victorfeijo/binding-pry-vim'
 
