@@ -109,6 +109,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'lifepillar/vim-solarized8'
 Plugin 'tpope/vim-sensible'
 Plugin 'victorfeijo/binding-pry-vim'
+Plugin 'pbrisbin/vim-mkdir'
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
