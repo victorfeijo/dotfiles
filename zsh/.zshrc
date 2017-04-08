@@ -3,8 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 #  export TERM="xterm-256color"
 setopt RM_STAR_WAIT
 setopt interactivecomments
-setopt CORRECT
-# Set name of the theme to load.
+setopt CORRECT # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
@@ -105,15 +104,16 @@ export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 # Work commands and aliases
-
-[ -s "/home/victorfeijo/.scm_breeze/scm_breeze.sh" ] && source "/home/victorfeijo/.scm_breeze/scm_breeze.sh"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/go/bin:$PATH"
-export GOPATH="$HOME/go"
-eval "$(rbenv init -)"
+# export PATH="$HOME/go/bin:$PATH"
+# export GOPATH="$HOME/go"
 
 # Python pyenv
-export PATH="/home/victorfeijo/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# export PATH="/home/victorfeijo/.pyenv/bin:$PATH"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+[ -s "/Users/victorfeijo/.scm_breeze/scm_breeze.sh" ] && source "/Users/victorfeijo/.scm_breeze/scm_breeze.sh"
+
