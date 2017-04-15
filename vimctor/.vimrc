@@ -14,6 +14,7 @@ set laststatus=4
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set cursorline
+set clipboard=unnamed
 
 "turn on syntax highlighting
 syntax on
@@ -114,6 +115,7 @@ Plugin 'pbrisbin/vim-mkdir'
 " Javascript
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'leafgarland/typescript-vim'
 
 " Ruby Bundles
 Plugin 'thoughtbot/vim-rspec'           " Run RSpecs from vim
@@ -171,7 +173,7 @@ map <Leader>s :call RunNearestSpec()<CR>
 " The Silver Searcher
 if executable('ag')
   let g:ctrlp_use_caching = 0
-  set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
