@@ -115,7 +115,6 @@ Plugin 'pbrisbin/vim-mkdir'
 " Javascript
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'leafgarland/typescript-vim'
 
 " Ruby Bundles
 Plugin 'thoughtbot/vim-rspec'           " Run RSpecs from vim
