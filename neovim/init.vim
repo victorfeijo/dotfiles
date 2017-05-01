@@ -1,33 +1,116 @@
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+" ================ General Config ====================
+
 scriptencoding utf-8
 set encoding=utf-8
-set ruler
-set number
-set noshowmode " airline already shows me
-"set paste
-" Softtabs, 2 spaces
-set tabstop=2
+set relativenumber
+set shell=/bin/zsh
+set wildmenu
+set wildmode=full
+set laststatus=4
+set visualbell                  "No sounds
+set autoread                    "Reload files changed outside vim
+set cursorline
+set clipboard=unnamed
+
+"turn on syntax highlighting
+syntax on
+
+" Change leader to a comma because the backslash is too far away
+" That means all \x commands turn into ,x
+" The mapleader has to be set before vundle starts loading all
+" the plugins.
+let mapleader=","
+
+" ================ Turn Off Swap Files ==============
+
+set noswapfile
+set nobackup
+set nowb
+
+" ================ Indentation ======================
+
+set autoindent
+set smartindent
+set smarttab
 set shiftwidth=2
-set shiftround
+set softtabstop=2
+set tabstop=2
 set expandtab
-set mouse=c " removing mouse
-set list listchars=tab:»·
-set ts=2 sw=2 et
-set wrap
-set viminfo-='100,<100,s10,h
+set pastetoggle=<F2>
 
-" mandatory defaults
-set nocompatible
-filetype off
-call plug#begin('~/.config/nvim/plugged')
+filetype plugin on
+filetype indent on
 
-Plug 'flazz/vim-colorschemes'
-Plug 'scrooloose/nerdtree'
+" Display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:·
+
+" ================ Completion =======================
+
+set wildmode=list:longest
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore+=*vim/backups*
+set wildignore+=*sass-cache*
+set wildignore+=*DS_Store*
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=*.png,*.jpg,*.gif
+
+" ================ Search ===========================
+
+set incsearch       " Find the next match as we type the search
+set hlsearch        " Highlight searches by default
+set ignorecase      " Ignore case when searching...
+set smartcase       " ...unless we type a capital
+
+" =============== Map commands =====================
+
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
+" Remove arrow keys
+" noremap <Up> <NOP>
+" noremap <Down> <NOP>
+" noremap <Left> <NOP>
+" noremap <Right> <NOP>
+
+" Map bigger line moves
+noremap <C-U> 12<C-U>
+noremap <C-D> 12<C-D>
+
+" Delete the current buffer
+nmap ,d :bd<CR>
+
+" ================ Plugins ==============
+"
+call plug#begin('~/.local/share/nvim/plugged')
+
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'kien/ctrlp.vim'
 Plug 'sickill/vim-pasta'
 Plug 'bling/vim-airline'
-Plug 'townk/vim-autoclose'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'raimondi/delimitmate'
 Plug 'rking/ag.vim'
 Plug 'christoomey/vim-system-copy'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sensible'
+Plug 'victorfeijo/binding-pry-vim'
+Plug 'pbrisbin/vim-mkdir'
+Plug 'iCyMind/NeoSolarized'
+
+" Javascript
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 " Ruby Bundles
 Plug 'thoughtbot/vim-rspec'           " Run RSpecs from vim
@@ -39,20 +122,24 @@ call plug#end()
 syntax enable
 filetype plugin indent on
 
-" Choose the colorscheme
+" NeoSolarizared confs
+set termguicolors
+colorscheme NeoSolarized
 set background=dark
-colorscheme google
-let g:solarized_termcolors=256
 
 " Open Nerd Tree
 map <C-n> :NERDTreeToggle<CR>
 nmap <leader>n :NERDTreeFind<CR>
 
-"Configure vim airline
-
-" Top separator bar
+" Airline configs
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='jellybeans'
+
+" JSX on javascript files
+let g:jsx_ext_required = 0
+
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 nmap <leader>1 <Plug>AirlineSelectTab1
@@ -65,7 +152,7 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9a
 
-"Rubocopo
+" Rubocop
 let g:vimrubocop_keymap = 0
 nmap <leader>rr :RuboCop<CR>
 nmap <leader>ra :RuboCop --auto-correct<CR>
@@ -73,15 +160,13 @@ nmap <leader>ra :RuboCop --auto-correct<CR>
 " Rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
 
 " Ctrl-p configuration
 " The Silver Searcher
 if executable('ag')
+  let g:ctrlp_use_caching = 0
   set wildignore+=*/tmp/*,*.so,*.swp,*.zip
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching = 0
 endif
-
-" Configure ag word finder
-let g:ag_working_path_mode="r"
