@@ -7,6 +7,7 @@ set nocompatible
 scriptencoding utf-8
 set encoding=utf-8
 set number
+set relativenumber
 set shell=/bin/zsh
 set wildmenu
 set wildmode=full
@@ -91,47 +92,39 @@ noremap <C-D> 12<C-D>
 nmap ,d :bd<CR>
 
 " ================ Plugins ==============
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.local/share/nvim/plugged')
 
-" My plugins
-Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'kien/ctrlp.vim'
-Plugin 'sickill/vim-pasta'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'raimondi/delimitmate'
-Plugin 'rking/ag.vim'
-Plugin 'christoomey/vim-system-copy'
-Plugin 'tpope/vim-commentary'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'lifepillar/vim-solarized8'
-Plugin 'tpope/vim-sensible'
-Plugin 'victorfeijo/binding-pry-vim'
-Plugin 'pbrisbin/vim-mkdir'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'kien/ctrlp.vim'
+Plug 'sickill/vim-pasta'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'raimondi/delimitmate'
+Plug 'rking/ag.vim'
+Plug 'christoomey/vim-system-copy'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sensible'
+Plug 'victorfeijo/binding-pry-vim'
+Plug 'pbrisbin/vim-mkdir'
+Plug 'iCyMind/NeoSolarized'
 
 " Javascript
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 " Ruby Bundles
-Plugin 'thoughtbot/vim-rspec'           " Run RSpecs from vim
-Plugin 'tpope/vim-endwise'              " Auto add end on class, module, def, etc.
-Plugin 'ngmy/vim-rubocop'               " Rubocop
+Plug 'thoughtbot/vim-rspec'           " Run RSpecs from vim
+Plug 'tpope/vim-endwise'              " Auto add end on class, module, def, etc.
+Plug 'ngmy/vim-rubocop'               " Rubocop
 
-call vundle#end()
+call plug#end()
 
 syntax enable
 filetype plugin indent on
 
 " Choose the colorscheme
-set t_Co=256
+colorscheme NeoSolarized
 set background=dark
-colorscheme solarized8_dark_high
-let g:solarized_termcolors=16
-let g:solarized_bold=1
 
 " Open Nerd Tree
 map <C-n> :NERDTreeToggle<CR>

@@ -12,5 +12,4 @@ alias ez='vim ~/.zshrc'
 alias en='vim ~/.config/nvim/init.vim'
 
 # switch from vim to nvim
-alias vim='nvim'
-alias nv='vim'
+alias nv='nvim'
