@@ -112,6 +112,10 @@ Plug 'iCyMind/NeoSolarized'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
+" html / templates
+Plug 'gregsexton/MatchTag', { 'for': 'html' } " match tags in html, similar to paren support
+Plug 'othree/html5.vim', { 'for': 'html' } " html5 support
+
 " Ruby Bundles
 Plug 'thoughtbot/vim-rspec'           " Run RSpecs from vim
 Plug 'tpope/vim-endwise'              " Auto add end on class, module, def, etc.
