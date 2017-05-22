@@ -3,7 +3,8 @@ export ZSH=$HOME/.oh-my-zsh
 #  export TERM="xterm-256color"
 setopt RM_STAR_WAIT
 setopt interactivecomments
-setopt CORRECT # Set name of the theme to load.
+setopt CORRECT
+# Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
@@ -12,7 +13,7 @@ ZSH_THEME="sunrise"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
+
 # sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
@@ -89,7 +90,7 @@ source $ZSH/oh-my-zsh.sh
 # export TERM=xterm-256color
 
 #oading plugin
-autoload -U compinit && compinit
+# autoload -U compinit && compinit
 autoload -Uz colors && colors
 
 # Some of my config's
@@ -100,20 +101,22 @@ export VISUAL=$EDITOR
 source ~/.oh-my-zsh/lib/alias.zsh
 
 # Android adb connecting
-export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_HOME=$HOME/Library/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 # Work commands and aliases
-# export PATH="$HOME/go/bin:$PATH"
-# export GOPATH="$HOME/go"
+
+export PATH="$HOME/go/bin:$PATH"
+export GOPATH="$HOME/go"
 
 # Python pyenv
-# export PATH="/home/victorfeijo/.pyenv/bin:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export PATH="/usr/local/opt/qt/bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# SCM breeze
 [ -s "/Users/victorfeijo/.scm_breeze/scm_breeze.sh" ] && source "/Users/victorfeijo/.scm_breeze/scm_breeze.sh"
-
