@@ -78,12 +78,6 @@ set smartcase       " ...unless we type a capital
 :command W w
 :command Q q
 
-" Remove arrow keys
-" noremap <Up> <NOP>
-" noremap <Down> <NOP>
-" noremap <Left> <NOP>
-" noremap <Right> <NOP>
-
 " Map bigger line moves
 noremap <C-U> 12<C-U>
 noremap <C-D> 12<C-D>
@@ -108,18 +102,21 @@ Plug 'victorfeijo/binding-pry-vim'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'iCyMind/NeoSolarized'
 
+" WakeTime
+Plug 'wakatime/vim-wakatime'
+
 " Javascript
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'js', 'jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'js', 'jsx'] }
 
 " html / templates
-Plug 'gregsexton/MatchTag', { 'for': 'html' } " match tags in html, similar to paren support
-Plug 'othree/html5.vim', { 'for': 'html' } " html5 support
+Plug 'gregsexton/MatchTag', { 'for': ['html', 'erb'] } " match tags in html, similar to paren support
+Plug 'othree/html5.vim', { 'for': ['html', 'erb'] } " html5 support
 
 " Ruby Bundles
-Plug 'thoughtbot/vim-rspec'           " Run RSpecs from vim
-Plug 'tpope/vim-endwise'              " Auto add end on class, module, def, etc.
-Plug 'ngmy/vim-rubocop'               " Rubocop
+Plug 'thoughtbot/vim-rspec', { 'for': ['ruby', 'rb'] } " Run RSpecs from vim
+Plug 'tpope/vim-endwise', { 'for': ['ruby', 'rb'] } " Auto add end on class, module, def, etc.
+Plug 'ngmy/vim-rubocop', { 'for': ['ruby', 'rb'] } " Rubocop
 
 call plug#end()
 
