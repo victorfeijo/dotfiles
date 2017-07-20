@@ -118,6 +118,9 @@ Plug 'thoughtbot/vim-rspec', { 'for': ['ruby', 'rb'] } " Run RSpecs from vim
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'rb'] } " Auto add end on class, module, def, etc.
 Plug 'ngmy/vim-rubocop', { 'for': ['ruby', 'rb'] } " Rubocop
 
+" Python
+Plug 'python-mode/python-mode', { 'for': ['python'] }
+
 call plug#end()
 
 syntax enable
@@ -161,6 +164,26 @@ nmap <leader>ra :RuboCop --auto-correct<CR>
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
+
+" Pymode
+au FileType python set tabstop=4
+au FileType python set tabstop=4
+au FileType python set softtabstop=4
+au FileType python set shiftwidth=4
+au FileType python set textwidth=120
+au FileType python set expandtab
+au FileType python set autoindent
+au FileType python set fileformat=unix
+au FileType python set wrap
+
+let python_highlight_all=1
+let g:pymode_rope = 0
+let g:pymode_options_max_line_length = 120
+let g:pymode_options_colorcolumn = 0
+let g:pymode_lint = 0
+let g:pymode_doc = 0
+let g:pymode_folding = 0
+
 
 " Ctrl-p configuration
 " The Silver Searcher
