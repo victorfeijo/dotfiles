@@ -106,8 +106,8 @@ Plug 'iCyMind/NeoSolarized'
 Plug 'wakatime/vim-wakatime'
 
 " Javascript
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'js', 'jsx'] }
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'js', 'jsx'] }
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 " html / templates
 Plug 'gregsexton/MatchTag', { 'for': ['html', 'erb'] } " match tags in html, similar to paren support
