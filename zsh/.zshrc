@@ -8,7 +8,7 @@ setopt CORRECT
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="sunrise"
+ZSH_THEME="originals"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -114,6 +114,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 export PATH="/usr/local/opt/qt/bin:$PATH"
+export CLASSPATH=".:/usr/local/lib/antlr-4.7-complete.jar:$CLASSPATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -124,3 +125,17 @@ export NVM_DIR="$HOME/.nvm"
 
 # SCM breeze
 [ -s "/Users/victorfeijo/.scm_breeze/scm_breeze.sh" ] && source "/Users/victorfeijo/.scm_breeze/scm_breeze.sh"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/victorfeijo/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/victorfeijo/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/victorfeijo/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/victorfeijo/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# FZF configs
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS='
+  --color dark,hl:33,hl+:37,fg+:235,bg+:241,fg+:254
+  --color info:254,prompt:37,spinner:108,pointer:235,marker:235
+'
+bindkey '^P' fzf-file-widget

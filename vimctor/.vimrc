@@ -85,11 +85,15 @@ noremap <C-D> 12<C-D>
 " Delete the current buffer
 nmap ,d :bd<CR>
 
+" These are things that I mistype and want ignored.
+nmap Q  <silent>
+nmap q: <silent>
+nmap K  <silent>
+
 " ================ Plugins ==============
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'kien/ctrlp.vim'
 Plug 'sickill/vim-pasta'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -101,6 +105,7 @@ Plug 'tpope/vim-sensible'
 Plug 'victorfeijo/binding-pry-vim'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'iCyMind/NeoSolarized'
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 
 " WakeTime
 Plug 'wakatime/vim-wakatime'
@@ -133,6 +138,12 @@ set background=dark
 " Open Nerd Tree
 map <C-n> :NERDTreeToggle<CR>
 nmap <leader>n :NERDTreeFind<CR>
+
+" FZF configuration
+nmap <C-k> :Ag! "\b<cword>\b" <CR>
+nmap <C-p> :Files<CR>
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let g:fzf_layout = { 'down': '~30%' }
 
 " Airline configs
 let g:airline#extensions#tabline#enabled = 1
@@ -183,13 +194,3 @@ let g:pymode_options_colorcolumn = 0
 let g:pymode_lint = 0
 let g:pymode_doc = 0
 let g:pymode_folding = 0
-
-
-" Ctrl-p configuration
-" The Silver Searcher
-if executable('ag')
-  let g:ctrlp_use_caching = 0
-  set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-  set grepprg=ag\ --nogroup\ --nocolor
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
