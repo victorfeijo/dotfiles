@@ -106,6 +106,7 @@ Plug 'victorfeijo/binding-pry-vim'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'iCyMind/NeoSolarized'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'w0rp/ale'
 
 " WakeTime
 Plug 'wakatime/vim-wakatime'
@@ -121,7 +122,7 @@ Plug 'othree/html5.vim', { 'for': ['html', 'erb'] } " html5 support
 " Ruby Bundles
 Plug 'thoughtbot/vim-rspec', { 'for': ['ruby', 'rb'] } " Run RSpecs from vim
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'rb'] } " Auto add end on class, module, def, etc.
-Plug 'ngmy/vim-rubocop', { 'for': ['ruby', 'rb'] } " Rubocop
+" Plug 'ngmy/vim-rubocop', { 'for': ['ruby', 'rb'] } " Rubocop
 
 " Python
 Plug 'python-mode/python-mode', { 'for': ['python'] }
@@ -194,3 +195,17 @@ let g:pymode_options_colorcolumn = 0
 let g:pymode_lint = 0
 let g:pymode_doc = 0
 let g:pymode_folding = 0
+
+" Ale Confs
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+let g:airline#extensions#ale#enabled = 1
+let g:ale_echo_msg_error_str = ''
+let g:ale_echo_msg_warning_str = ''
+let g:ale_lint_on_text_changed = 'never'
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'ruby': ['reek', 'rubocop', 'ruby']
+\}
