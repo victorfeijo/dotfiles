@@ -8,7 +8,7 @@ setopt CORRECT
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="originals"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -135,7 +135,7 @@ if [ -f '/Users/victorfeijo/Downloads/google-cloud-sdk/completion.zsh.inc' ]; th
 # FZF configs
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS='
-  --color dark,hl:33,hl+:37,fg+:235,bg+:241,fg+:254
+  --color dark,hl:33,hl+:37,fg+:235,bg+:242,fg+:254
   --color info:254,prompt:37,spinner:108,pointer:235,marker:235
 '
 bindkey '^P' fzf-file-widget
