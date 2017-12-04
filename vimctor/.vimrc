@@ -138,6 +138,9 @@ Plug 'tpope/vim-endwise', { 'for': ['ruby', 'rb'] } " Auto add end on class, mod
 " Python
 Plug 'python-mode/python-mode', { 'for': ['python'] }
 
+" Exliri
+Plug 'elixir-editors/vim-elixir'
+
 call plug#end()
 
 syntax enable
