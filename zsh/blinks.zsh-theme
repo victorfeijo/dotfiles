@@ -8,6 +8,8 @@ function _prompt_char() {
   fi
 }
 
+local return_code="%(?..%{$R%}%? ↵%{$RESET%})"
+
 # This theme works with both the "dark" and "light" variants of the
 # Solarized color schema.  Set the SOLARIZED_THEME variable to one of
 # these two values to choose.  If you don't specify, we'll assume you're
@@ -28,4 +30,4 @@ PROMPT='%{%f%k%b%}
 %{%K{${bkg}}%}$(_prompt_char)%{%K{${bkg}}%} %#%{%f%k%b%} '
 
 RPROMPT='!%{%B%F{cyan}%}%!%{%f%k%b%}'
-RPS1=""
+RPS1="${return_code}"
