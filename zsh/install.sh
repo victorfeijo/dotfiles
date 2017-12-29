@@ -2,6 +2,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 cp zsh/.zshrc ~/.zshrc
 
-cp zsh/sunrise.zsh-theme ~/.oh-my-zsh/themes/sunrise.zsh-theme
+cp zsh/blinks.zsh-theme ~/.oh-my-zsh/themes/blinks.zsh-theme
 
 cp zsh/alias.zsh ~/.oh-my-zsh/lib/alias.zsh
