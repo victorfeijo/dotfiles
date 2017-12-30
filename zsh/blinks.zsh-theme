@@ -8,7 +8,8 @@ function _prompt_char() {
   fi
 }
 
-local return_code="%(?..%{$R%}%? ↵%{$RESET%})"
+RED=%B%F{202}
+local return_code="%(?..%{$RED%}%? ↵%{$RESET%})"
 
 # This theme works with both the "dark" and "light" variants of the
 # Solarized color schema.  Set the SOLARIZED_THEME variable to one of
