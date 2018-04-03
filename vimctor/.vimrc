@@ -138,8 +138,8 @@ Plug 'tpope/vim-endwise', { 'for': ['ruby', 'rb'] } " Auto add end on class, mod
 " Python
 Plug 'python-mode/python-mode', { 'for': ['python'] }
 
-" Exliri
-Plug 'elixir-editors/vim-elixir'
+" Elixir
+Plug 'elixir-editors/vim-elixir', { 'for': ['elixir'] }
 
 call plug#end()
 
@@ -155,7 +155,7 @@ map <C-n> :NERDTreeToggle<CR>
 nmap <leader>n :NERDTreeFind<CR>
 
 " FZF configuration
-nmap <C-i> :Ag! "\b<cword>\b" <CR>
+nmap <C-k> :Ag! "\b<cword>\b" <CR>
 nmap <C-p> :Files<CR>
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 let g:fzf_layout = { 'down': '~30%' }
