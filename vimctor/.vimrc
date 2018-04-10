@@ -64,6 +64,7 @@ set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
+set wildignore+=spec/support/fixtures/vcr_cassettes/**
 
 " ================ Search ===========================
 
@@ -74,10 +75,10 @@ set smartcase       " ...unless we type a capital
 
 " =============== Map commands =====================
 
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
+:command! WQ wq
+:command! Wq wq
+:command! W w
+:command! Q q
 
 " Map bigger line moves
 noremap <C-U> 12<C-U>
@@ -132,7 +133,6 @@ Plug 'gregsexton/MatchTag', { 'for': ['html', 'eruby'] } " match tags in html, s
 Plug 'othree/html5.vim', { 'for': ['html', 'eruby'] } " html5 support
 
 " Ruby Bundles
-Plug 'thoughtbot/vim-rspec', { 'for': ['ruby', 'rb'] } " Run RSpecs from vim
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'rb'] } " Auto add end on class, module, def, etc.
 
 " Python
@@ -149,6 +149,8 @@ filetype plugin indent on
 " Choose the colorscheme
 colorscheme NeoSolarized
 set background=dark
+set t_ut=
+set t_Co=256
 
 " Open Nerd Tree
 map <C-n> :NERDTreeToggle<CR>
@@ -180,11 +182,6 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
-
-" Rspec
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
 
 " Pymode
 au FileType python set tabstop=4
