@@ -157,7 +157,8 @@ map <C-n> :NERDTreeToggle<CR>
 nmap <leader>n :NERDTreeFind<CR>
 
 " FZF configuration
-nmap <C-k> :Ag! "\b<cword>\b" <CR>
+" Search the selected word
+nmap <C-i> :Ag! "\b<cword>\b" <CR>
 nmap <C-p> :Files<CR>
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 let g:fzf_layout = { 'down': '~30%' }
