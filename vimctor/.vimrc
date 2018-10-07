@@ -131,6 +131,7 @@ Plug 'mxw/vim-jsx'
 " html / templates
 Plug 'gregsexton/MatchTag', { 'for': ['html', 'eruby'] } " match tags in html, similar to paren support
 Plug 'othree/html5.vim', { 'for': ['html', 'eruby'] } " html5 support
+Plug 'slim-template/vim-slim'
 
 " Ruby Bundles
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'rb'] } " Auto add end on class, module, def, etc.
