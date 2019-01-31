@@ -88,6 +88,16 @@ source $ZSH/oh-my-zsh.sh
 #
 
 # export TERM=xterm-256color
+#
+# Allow copy special characters on terminal sessions
+export LANG="en_US.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 
 #oading plugin
 # autoload -U compinit && compinit
@@ -115,6 +125,8 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 export PATH="/usr/local/opt/qt/bin:$PATH"
 export CLASSPATH=".:/usr/local/lib/antlr-4.7-complete.jar:$CLASSPATH"
+export PYTHON_BIN="$HOME/Library/Python/3.7/bin"
+export PATH=$PYTHON_BIN:$PATH
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -139,3 +151,21 @@ export FZF_DEFAULT_OPTS='
   --color info:254,prompt:37,spinner:108,pointer:235,marker:235
 '
 bindkey '^P' fzf-file-widget
+
+
+# Mariadb 10.2
+
+# compile flags
+# LDFLAGS:  -L/usr/local/opt/mariadb@10.2/lib
+# CPPFLAGS: -I/usr/local/opt/mariadb@10.2/include
+# export PKG_CONFIG_PATH="/usr/local/opt/mariadb@10.2/share/pkgconfig"
+# export PATH="/usr/local/opt/mariadb@10.2/bin:$PATH"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/victorfeijo/code/webhooks/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/victorfeijo/code/webhooks/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/victorfeijo/code/webhooks/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/victorfeijo/code/webhooks/node_modules/tabtab/.completions/sls.zsh
+
+export RETRY_COUNT=0
