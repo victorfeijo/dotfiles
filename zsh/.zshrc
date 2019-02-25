@@ -138,6 +138,10 @@ export NVM_DIR="$HOME/.nvm"
 # SCM breeze
 [ -s "/Users/victorfeijo/.scm_breeze/scm_breeze.sh" ] && source "/Users/victorfeijo/.scm_breeze/scm_breeze.sh"
 
+function rspec {
+  exec_scmb_expand_args rspec $@
+}
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/victorfeijo/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/victorfeijo/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
