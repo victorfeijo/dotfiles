@@ -120,6 +120,7 @@ Plug 'iCyMind/NeoSolarized'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-surround'
+Plug 'editorconfig/editorconfig-vim'
 
 " WakeTime
 Plug 'wakatime/vim-wakatime'
