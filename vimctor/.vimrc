@@ -128,11 +128,18 @@ Plug 'wakatime/vim-wakatime'
 " Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'othree/yajs.vim'
+
+" Typescript
+Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
+Plug 'HerringtonDarkholme/yats.vim'
 
 " html / templates
 Plug 'gregsexton/MatchTag', { 'for': ['html', 'eruby'] } " match tags in html, similar to paren support
 Plug 'othree/html5.vim', { 'for': ['html', 'eruby'] } " html5 support
 Plug 'slim-template/vim-slim'
+Plug 'nikvdp/ejs-syntax'
 
 " Ruby Bundles
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'rb'] } " Auto add end on class, module, def, etc.
@@ -216,6 +223,7 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_linters = {
 \   'javascript': ['eslint'],
+\   'typescript': ['tslint'],
 \   'ruby': ['rubocop', 'ruby'],
 \   'eruby': []
 \}
