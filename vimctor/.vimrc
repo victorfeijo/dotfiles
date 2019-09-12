@@ -121,6 +121,7 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " WakeTime
 Plug 'wakatime/vim-wakatime'
@@ -128,12 +129,8 @@ Plug 'wakatime/vim-wakatime'
 " Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'othree/yajs.vim'
-
-" Typescript
 Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
-Plug 'HerringtonDarkholme/yats.vim'
 
 " html / templates
 Plug 'gregsexton/MatchTag', { 'for': ['html', 'eruby'] } " match tags in html, similar to paren support
@@ -223,7 +220,15 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'typescript': ['tslint'],
+\   'typescript': ['tsserver', 'tslint'],
 \   'ruby': ['rubocop', 'ruby'],
 \   'eruby': []
 \}
+let g:ale_fixers = {
+\  'javascript': ['eslint'],
+\  'typescript': ['prettier'],
+\  'vue': ['eslint'],
+\  'scss': ['prettier'],
+\  'html': ['prettier']
+\}
+let g:ale_fix_on_save = 1
