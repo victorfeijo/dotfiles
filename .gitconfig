@@ -1,0 +1,22 @@
+# This is Git's per-user configuration file.
+[user]
+  name = Victor Feijo
+  email = victor.feijoa@gmail.com
+# Please adapt and uncomment the following lines:
+# name = Victor Feijo
+# email = victor.feijoa@gmail.com
+[core]
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  features = side-by-side line-numbers decorations
+  whitespace-error-style = 22 reverse
+	side-by-side = true
+
+[delta "decorations"]
+  commit-decoration-style = bold yellow box ul
+  file-style = bold yellow ul
+  file-decoration-style = none

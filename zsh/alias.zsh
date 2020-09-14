@@ -13,3 +13,6 @@ alias en='vim ~/.config/nvim/init.vim'
 
 # switch from vim to nvim
 alias nv='nvim'
+
+# Switch from cat to bat
+alias cat='bat'

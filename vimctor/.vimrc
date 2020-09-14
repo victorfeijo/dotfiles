@@ -122,6 +122,8 @@ Plug 'w0rp/ale'
 Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'airblade/vim-gitgutter'
+Plug 'chemzqm/wxapp.vim'
 
 " WakeTime
 Plug 'wakatime/vim-wakatime'
@@ -131,6 +133,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
+Plug 'posva/vim-vue'
 
 " html / templates
 Plug 'gregsexton/MatchTag', { 'for': ['html', 'eruby'] } " match tags in html, similar to paren support
@@ -142,10 +145,13 @@ Plug 'nikvdp/ejs-syntax'
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'rb'] } " Auto add end on class, module, def, etc.
 
 " Python
-Plug 'python-mode/python-mode', { 'for': ['python'] }
+Plug 'python-mode/python-mode', { 'for': ['python', 'py'] }
 
 " Elixir
 Plug 'elixir-editors/vim-elixir', { 'for': ['elixir'] }
+
+" Ethereum
+Plug 'tomlion/vim-solidity'
 
 call plug#end()
 
@@ -202,9 +208,9 @@ au FileType python set fileformat=unix
 au FileType python set wrap
 
 let python_highlight_all=1
-let g:pymode_rope = 0
 let g:pymode_options_max_line_length = 120
 let g:pymode_options_colorcolumn = 0
+let g:pymode_rope = 0
 let g:pymode_lint = 0
 let g:pymode_doc = 0
 let g:pymode_folding = 0
@@ -222,7 +228,8 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['tsserver', 'tslint'],
 \   'ruby': ['rubocop', 'ruby'],
-\   'eruby': []
+\   'eruby': [],
+\   'python': ['flake8']
 \}
 let g:ale_fixers = {
 \  'javascript': ['eslint'],
@@ -232,3 +239,7 @@ let g:ale_fixers = {
 \  'html': ['prettier']
 \}
 let g:ale_fix_on_save = 1
+
+" Gitgutter
+let updatetime=100
+autocmd BufWritePost * GitGutter
