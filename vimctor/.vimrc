@@ -130,9 +130,12 @@ Plug 'wakatime/vim-wakatime'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+Plug 'maxmellon/vim-jsx-pretty'
+
+" Typescript
 Plug 'leafgarland/typescript-vim'
-Plug 'ianks/vim-tsx'
+Plug 'peitalin/vim-jsx-typescript'
+
 Plug 'posva/vim-vue'
 
 " html / templates
@@ -233,7 +236,7 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {
 \  'javascript': ['eslint'],
-\  'typescript': ['prettier'],
+\  'typescript': ['eslint'],
 \  'vue': ['eslint'],
 \  'scss': ['prettier'],
 \  'html': ['prettier']
