@@ -17,6 +17,17 @@ set autoread                    "Reload files changed outside vim
 set cursorline
 set clipboard=unnamed
 set linebreak               " Break long lines by word, not char"
+set hidden
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
 
 "turn on syntax highlighting
 syntax on
@@ -32,6 +43,7 @@ let mapleader=","
 set noswapfile
 set nobackup
 set nowb
+set nowritebackup
 
 " ================ Indentation ======================
 
@@ -102,6 +114,8 @@ nmap K  <silent>
 nmap j gj
 nmap k gk
 
+imap <C-c> <Esc>
+
 " ================ Plugins ==============
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -131,11 +145,12 @@ Plug 'wakatime/vim-wakatime'
 " Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'jparise/vim-graphql'
 
 " Typescript
 Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
 
+" JS Framework
 Plug 'posva/vim-vue'
 
 " html / templates
@@ -199,6 +214,9 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 
+" Source Vim configuration file and install plugins
+nnoremap <silent><leader>p :source ~/.vimrc \| :PlugInstall<CR>
+
 " Pymode
 au FileType python set tabstop=4
 au FileType python set tabstop=4
@@ -218,6 +236,63 @@ let g:pymode_lint = 0
 let g:pymode_doc = 0
 let g:pymode_folding = 0
 
+" Coc Confs
+let g:coc_global_extensions = ['coc-tsserver']
+
+if has('nvim')
+  inoremap <silent><expr> <C-space> coc#refresh()
+else
+  inoremap <silent><expr> <C-l> coc#refresh()
+endif
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
 " Ale Confs
 let g:ale_sign_error = ''
 let g:ale_echo_msg_error_str = ''
@@ -229,14 +304,14 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'typescript': ['tsserver', 'tslint'],
+\   'typescript': [],
 \   'ruby': ['rubocop', 'ruby'],
 \   'eruby': [],
 \   'python': ['flake8']
 \}
 let g:ale_fixers = {
 \  'javascript': ['eslint'],
-\  'typescript': ['eslint'],
+\  'typescript': ['eslint', 'prettier'],
 \  'vue': ['eslint'],
 \  'scss': ['prettier'],
 \  'html': ['prettier']
@@ -244,5 +319,4 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 
 " Gitgutter
-let updatetime=100
 autocmd BufWritePost * GitGutter
