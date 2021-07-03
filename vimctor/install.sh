@@ -1,9 +1,10 @@
-DIRECTORY="$HOME/.vim/bundle/Vundle.vim"
+DIRECTORY="$HOME/.vim/autoload/plug.vim"
 
 cp vimctor/.vimrc ~/.vimrc
 
 if [ ! -d  "$DIRECTORY" ]; then
-  git clone https://github.com/VundleVim/Vundle.vim.git $DIRECTORY
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-vim +PluginInstall
+vim +PlugInstall
