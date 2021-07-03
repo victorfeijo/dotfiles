@@ -18,7 +18,7 @@ set cursorline
 set clipboard=unnamed
 set linebreak               " Break long lines by word, not char"
 set hidden
-set cmdheight=2
+set cmdheight=1
 set updatetime=300
 set shortmess+=c
 if has("patch-8.1.1564")
@@ -131,7 +131,8 @@ Plug 'tpope/vim-sensible'
 Plug 'victorfeijo/binding-pry-vim'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'iCyMind/NeoSolarized'
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
@@ -188,6 +189,7 @@ nmap <leader>n :NERDTreeFind<CR>
 
 " FZF configuration
 " Search the selected word
+set rtp+=/usr/local/opt/fzf
 nmap <C-i> :Ag! "\b<cword>\b" <CR>
 nmap <C-p> :Files<CR>
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
