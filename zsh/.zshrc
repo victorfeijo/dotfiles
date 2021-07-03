@@ -110,6 +110,9 @@ export VISUAL=$EDITOR
 # Aliases
 source ~/.oh-my-zsh/lib/alias.zsh
 
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Android adb connecting
 export ANDROID_HOME=$HOME/Library/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
@@ -120,20 +123,33 @@ export PATH="$HOME/go/bin:$PATH"
 export GOPATH="$HOME/go"
 
 # Python pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-export PATH="/usr/local/opt/qt/bin:$PATH"
-export CLASSPATH=".:/usr/local/lib/antlr-4.7-complete.jar:$CLASSPATH"
-export PYTHON_BIN="$HOME/Library/Python/3.7/bin"
-export PATH=$PYTHON_BIN:$PATH
+export PYENV_SHELL=zsh
+source '/opt/homebrew/Cellar/pyenv/2.0.2/libexec/../completions/pyenv.zsh'
+command pyenv rehash 2>/dev/null
+pyenv() {
+  local command
+  command="${1:-}"
+  if [ "$#" -gt 0 ]; then
+    shift
+  fi
+
+  case "$command" in
+  rehash|shell)
+    eval "$(pyenv "sh-$command" "$@")"
+    ;;
+  *)
+    command pyenv "$command" "$@"
+    ;;
+  esac
+}
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
 # Add NVM Path
 export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # SCM breeze
 [ -s "/Users/victorfeijo/.scm_breeze/scm_breeze.sh" ] && source "/Users/victorfeijo/.scm_breeze/scm_breeze.sh"
