@@ -11,7 +11,7 @@ set relativenumber
 set shell=/bin/zsh
 set wildmenu
 set wildmode=full
-set laststatus=4
+set laststatus=2                "Enable airline
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set cursorline
@@ -116,7 +116,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'sickill/vim-pasta'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'raimondi/delimitmate'
 Plug 'rking/ag.vim'
@@ -126,14 +126,15 @@ Plug 'tpope/vim-sensible'
 Plug 'victorfeijo/binding-pry-vim'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'iCyMind/NeoSolarized'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'tag': '0.41.0' }
+Plug 'junegunn/fzf'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
 Plug 'chemzqm/wxapp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 
 " WakeTime
 Plug 'wakatime/vim-wakatime'
@@ -157,6 +158,7 @@ Plug 'nikvdp/ejs-syntax'
 
 " Ruby Bundles
 Plug 'tpope/vim-endwise', { 'for': ['ruby', 'rb'] } " Auto add end on class, module, def, etc.
+Plug 'thoughtbot/vim-rspec'
 
 " Python
 Plug 'python-mode/python-mode', { 'for': ['python', 'py'] }
@@ -173,6 +175,7 @@ syntax enable
 filetype plugin indent on
 
 " Choose the colorscheme
+set termguicolors
 colorscheme NeoSolarized
 set background=dark
 set t_ut=
@@ -184,11 +187,11 @@ nmap <leader>n :NERDTreeFind<CR>
 
 " FZF configuration
 " Search the selected word
-set rtp+=/usr/local/opt/fzf
-nmap <C-i> :Ag! "\b<cword>\b" <CR>
-nmap <C-p> :Files<CR>
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+set rtp+=~/.fzf
 let g:fzf_layout = { 'down': '~30%' }
+let $FZF_DEFAULT_COMMAND = 'ag --ignore sorbet/ -g ""'
+nmap <C-p> :FZF<CR>
+nmap <C-i> :Ag! "\b<cword>\b" <CR>
 
 " Airline configs
 let g:airline#extensions#tabline#enabled = 1
@@ -302,18 +305,26 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': [],
-\   'ruby': ['rubocop', 'ruby'],
+\   'ruby': ['sorbet', 'rubocop', 'ruby'],
 \   'eruby': [],
 \   'python': ['flake8']
 \}
 let g:ale_fixers = {
 \  'javascript': ['eslint'],
 \  'typescript': ['eslint', 'prettier'],
+\  'typescriptreact': ['prettier', 'eslint'],
 \  'vue': ['eslint'],
 \  'scss': ['prettier'],
 \  'html': ['prettier']
 \}
 let g:ale_fix_on_save = 1
+let g:ale_virtualtext_cursor = 'disabled'
 
 " Gitgutter
 autocmd BufWritePost * GitGutter
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>

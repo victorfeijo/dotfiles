@@ -122,34 +122,8 @@ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 export PATH="$HOME/go/bin:$PATH"
 export GOPATH="$HOME/go"
 
-# Python pyenv
-export PYENV_SHELL=zsh
-source '/opt/homebrew/Cellar/pyenv/2.0.2/libexec/../completions/pyenv.zsh'
-command pyenv rehash 2>/dev/null
-pyenv() {
-  local command
-  command="${1:-}"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-
-  case "$command" in
-  rehash|shell)
-    eval "$(pyenv "sh-$command" "$@")"
-    ;;
-  *)
-    command pyenv "$command" "$@"
-    ;;
-  esac
-}
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
-
-# Add NVM Path
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # SCM breeze
 [ -s "/Users/victorfeijo/.scm_breeze/scm_breeze.sh" ] && source "/Users/victorfeijo/.scm_breeze/scm_breeze.sh"
@@ -171,7 +145,7 @@ export FZF_DEFAULT_OPTS='
   --color info:254,prompt:37,spinner:108,pointer:235,marker:235
 '
 bindkey '^P' fzf-file-widget
-
+bindkey -s '^k' 'kill -9 **\t'
 
 # Mariadb 10.2
 
@@ -189,3 +163,7 @@ bindkey '^P' fzf-file-widget
 [[ -f /Users/victorfeijo/code/webhooks/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/victorfeijo/code/webhooks/node_modules/tabtab/.completions/sls.zsh
 
 export RETRY_COUNT=0
+
+# NVM Path
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvmP
