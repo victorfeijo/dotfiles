@@ -1,0 +1,85 @@
+{
+  "window.commandCenter": 1,
+  "editor.fontFamily": "'SauceCodePro Nerd Font Mono', Menlo, Monaco, 'Courier New', monospace",
+  "vim.leader": ",",
+  "editor.fontSize": 13,
+  "editor.lineNumbers": "relative",
+  "workbench.colorTheme": "Solarized Dark",
+  "editor.tabSize": 2,
+  "editor.cursorStyle": "block-outline",
+  "editor.wordWrap": "on",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  // The following setting ensures that ESLint and Prettier fixes are applied on save.
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always"
+  },
+  "eslint.run": "onType",
+  "eslint.format.enable": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "commands": [
+        "workbench.action.closeActiveEditor"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "commands": [
+        "workbench.action.closeActiveEditor"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "t"
+      ],
+      "commands": [
+        "extension.runFileOnRspec"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "s"
+      ],
+      "commands": [
+        "extension.runLineOnRspec"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "a"
+      ],
+      "commands": [
+        "extension.runOnLastSpec"
+      ]
+    }
+  ],
+  "vim.vimrc.enable": true,
+  "vim.vimrc.path": "~/.vscode-config/.vimrc",
+  "cursor.agent_layout_browser_beta_setting": true,
+  "cursor.enable_agent_window_setting": true,
+  "files.associations": {
+    "*.tsx": "typescriptreact"
+  }
+}

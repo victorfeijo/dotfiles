@@ -1,0 +1,10 @@
+bierner.markdown-preview-github-styles
+dbaeumer.vscode-eslint
+esbenp.prettier-vscode
+openai.chatgpt
+rubocop.vscode-rubocop
+sorbet.sorbet-vscode-extension
+thadeu.vscode-run-rspec-file
+vscodevim.vim
+zokugun.cron-tasks
+zokugun.sync-settings

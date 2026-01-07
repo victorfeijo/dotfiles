@@ -1,0 +1,7 @@
+# Copy configs back
+cp ~/code/dotfiles/vscode/settings.json ~/Library/Application\ Support/Cursor/User/
+cp ~/code/dotfiles/vscode/keybindings.json ~/Library/Application\ Support/Cursor/User/
+cp -r ~/code/dotfiles/vscode/snippets ~/Library/Application\ Support/Cursor/User/
+
+# Install extensions
+cat ~/code/dotfiles/vscode/extensions.txt | xargs -L 1 cursor --install-extension
