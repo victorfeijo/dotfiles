@@ -1,0 +1,113 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "solarized",
+  "model": "anthropic/claude-opus-4-5",
+  "autoupdate": true,
+  "plugin": ["opencode-anthropic-auth"],
+  "mcp": {
+    "context7": {
+      "enabled": false,
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "figma": {
+      "enabled": true,
+      "type": "remote",
+      "url": "http://127.0.0.1:3845/mcp"
+    },
+    "chrome-devtools": {
+      "enabled": true,
+      "type": "local",
+      "command": ["npx", "-y", "chrome-devtools-mcp@latest"],
+      "environment": {}
+    },
+    "shadcn": {
+      "enabled": false,
+      "type": "local",
+      "command": ["npx", "shadcn@latest", "mcp"],
+      "environment": {}
+    },
+    "linear": {
+      "enabled": true,
+      "type": "local",
+      "command": ["npx", "-y", "mcp-remote", "https://mcp.linear.app/sse"]
+    },
+    "browsermcp": {
+      "enabled": true,
+      "type": "local",
+      "command": ["npx", "@browsermcp/mcp@latest"]
+    },
+    "gh-grep": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.grep.app"
+    }
+  },
+  "permission": {
+    "bash": {
+      "git status": "allow",
+      "git diff": "allow",
+      "ls": "allow",
+      "pwd": "allow",
+      "rm": "ask",
+      "git push": "deny"
+    }
+  },
+  "agent": {
+    "researcher": {
+      "reasoningEffort": "xhigh"
+    },
+    "planner": {
+      "reasoningEffort": "high"
+    },
+    "implementer": {
+      "color": "#3F7C43"
+    },
+    "build": {
+      "mode": "primary",
+      "disable": true,
+      "permission": {
+        "bash": {
+          "*": "allow",
+          "git push *": "ask",
+          "git commit *": "ask",
+          "rm *": "ask"
+        },
+        "edit": "allow",
+        "write": "allow",
+        "read": "allow",
+        "grep": "allow",
+        "glob": "allow",
+        "list": "allow",
+        "patch": "allow",
+        "todowrite": "allow",
+        "todoread": "allow",
+        "webfetch": "allow"
+      }
+    },
+    "plan": {
+      "mode": "primary",
+      "disable": true,
+      "permission": {
+        "bash": {
+          "cd *": "allow",
+          "git diff *": "allow",
+          "xargs *": "allow",
+          "grep *": "allow",
+          "*": "ask"
+        },
+        "edit": "deny",
+        "write": "deny",
+        "read": "allow",
+        "grep": "allow",
+        "glob": "allow",
+        "list": "allow",
+        "patch": "ask",
+        "todowrite": "allow",
+        "todoread": "allow",
+        "webfetch": "allow"
+      }
+    }
+  },
+  "lsp": {}
+}

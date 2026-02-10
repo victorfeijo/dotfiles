@@ -22,6 +22,7 @@ set cmdheight=1
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
+set previewheight=20
 
 
 "turn on syntax highlighting
@@ -134,10 +135,12 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
 Plug 'chemzqm/wxapp.vim'
-" Plug 'ctrlpvim/ctrlp.vim'
-
-" WakeTime
-Plug 'wakatime/vim-wakatime'
+" Git inside Vim: :Git, :Gstatus, :Gdiffsplit, etc.
+Plug 'tpope/vim-fugitive'
+" Inline change markers + hunk actions
+Plug 'airblade/vim-gitgutter'
+" Git status flags inside NERDTree
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
@@ -328,3 +331,16 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+" Git configs
+" Fugitive status
+nnoremap <leader>gs :Git<CR>
+"
+" Diff current file (index vs working tree)
+nnoremap <leader>gd :Gvdiffsplit<CR>
+
+" Open all changed files (tracked) as args, then open each in a tab
+nnoremap <leader>ga :execute 'args ' . system('git diff --name-only')<CR>:tab all<CR>
+
+" Open all files from git status, including untracked
+nnoremap <leader>gA :execute 'args ' . system('git ls-files -m -o --exclude-standard')<CR>:tab all<CR>

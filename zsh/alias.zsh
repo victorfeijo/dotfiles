@@ -16,3 +16,10 @@ alias nv='nvim'
 
 # Switch from cat to bat
 alias cat='bat'
+
+# dev container
+alias dc-build='devcontainer build --workspace-folder "$(pwd)"'
+alias dc-up='devcontainer up --workspace-folder "$(pwd)"'
+alias dc-shell='devcontainer exec --workspace-folder "$(pwd)" -- bash'
+alias dc-down='devcontainer down --workspace-folder "$(pwd)"'
+
